@@ -10,7 +10,6 @@ public interface ClientService {
 
     //public List<Client> findAllClients();
     public Client addClient(Client c);
-    public Client addClient(Actor c);
     public Client findClientById(Long id);
     public Client updateClient(Client c , Long id);
     public void deleteClient(Long id);

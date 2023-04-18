@@ -21,10 +21,7 @@ public class ClientServiceImpl implements ClientService {
         return clientRepo.save(c);
     }
 
-    @Override
-    public Client addClient(Actor c) {
-        return null;
-    }
+
 
     @Override
     public Client findClientById(Long id) {
