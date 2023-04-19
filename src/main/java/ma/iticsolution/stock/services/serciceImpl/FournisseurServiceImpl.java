@@ -1,19 +1,15 @@
 package ma.iticsolution.stock.services.serciceImpl;
 
-import ma.iticsolution.stock.entities.Actor;
-import ma.iticsolution.stock.entities.Client;
 import ma.iticsolution.stock.entities.Fournisseur;
-import ma.iticsolution.stock.repository.ClientRepo;
 import ma.iticsolution.stock.repository.FournisseurRepo;
 import ma.iticsolution.stock.services.FournisseurService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class FournisseurServiceImpl implements FournisseurService {
 
-    @Autowired
-    FournisseurRepo fournisseurRepo;
+    private final FournisseurRepo fournisseurRepo;
 
     public FournisseurServiceImpl(FournisseurRepo fournisseurRepo) {
         this.fournisseurRepo = fournisseurRepo;
