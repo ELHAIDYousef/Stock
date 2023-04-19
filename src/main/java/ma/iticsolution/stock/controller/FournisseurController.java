@@ -1,6 +1,6 @@
 package ma.iticsolution.stock.controller;
 
-import ma.iticsolution.stock.entities.Client;
+
 import ma.iticsolution.stock.entities.Fournisseur;
 import ma.iticsolution.stock.services.FournisseurService;
 import org.springframework.web.bind.annotation.*;
@@ -34,11 +34,11 @@ public class FournisseurController {
         return fournisseurService.addFournisseur(fournisseur);
     }
     @PutMapping("/update-fournisseur")
-    public Fournisseur updateCategory(Fournisseur fournisseur, Long id) {
+    public Fournisseur updateFournisseur(Fournisseur fournisseur, Long id) {
         return fournisseurService.updateFournisseur(fournisseur, id);
     }
     @DeleteMapping("/delete-fournisseur/{id}")
-    public void deleteCategory(@PathVariable(name = "id") Long id) {
+    public void deleteFournisseur(@PathVariable(name = "id") Long id) {
         fournisseurService.deleteFournisseur(id);
     }
 }

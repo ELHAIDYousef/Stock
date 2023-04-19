@@ -37,12 +37,12 @@ public class ClientController {
     }
 
     @PutMapping("/update-client")
-    public Client updateCategory(Client client, Long id) {
+    public Client updateClient(Client client, Long id) {
         return clientService.updateClient(client, id);
     }
 
     @DeleteMapping("/delete-client/{id}")
-    public void deleteCategory(@PathVariable(name = "id") Long id) {
+    public void deleteClient(@PathVariable(name = "id") Long id) {
         clientService.deleteClient(id);
     }
 }
