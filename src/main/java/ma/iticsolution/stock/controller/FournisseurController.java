@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "fournisseur")
+@RequestMapping(path = "/fournisseur")
 public class FournisseurController {
 
     FournisseurService fournisseurService;
@@ -17,10 +17,6 @@ public class FournisseurController {
         this.fournisseurService = fournisseurService;
     }
 
-    /*@GetMapping
-    public List<Fournisseur> getAllFournisseurs() {
-        return fournisseurService.getAllFournisseurs();
-    }*/
     @GetMapping("/{id}")
     public Fournisseur getFournisseurById(@PathVariable(name = "id") Long id) {
         return fournisseurService.findFournisseurById(id);

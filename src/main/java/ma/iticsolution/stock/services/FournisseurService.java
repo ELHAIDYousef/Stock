@@ -1,6 +1,6 @@
 package ma.iticsolution.stock.services;
 
-import ma.iticsolution.stock.entities.Actor;
+
 import ma.iticsolution.stock.entities.Fournisseur;
 
 import java.util.List;
@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface FournisseurService {
 
-    //public List<Fournisseur> findAllFournisseurs();
-    public Fournisseur addFournisseur(Fournisseur c);
-    public Fournisseur findFournisseurById(Long id);
-    public Fournisseur updateFournisseur(Fournisseur c , Long id);
-    public void deleteFournisseur(Long id);
-    public List<Fournisseur> findFournisseurByName(String name);
+    //List<Fournisseur> findAllFournisseurs();
+    Fournisseur addFournisseur(Fournisseur c);
+    Fournisseur findFournisseurById(Long id);
+    Fournisseur updateFournisseur(Fournisseur c , Long id);
+    void deleteFournisseur(Long id);
+    List<Fournisseur> findFournisseurByName(String name);
 
 }

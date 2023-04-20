@@ -1,6 +1,6 @@
 package ma.iticsolution.stock.repository;
 
-import ma.iticsolution.stock.entities.Client;
+
 import ma.iticsolution.stock.entities.Fournisseur;
 import org.springframework.data.jpa.repository.JpaRepository;
 

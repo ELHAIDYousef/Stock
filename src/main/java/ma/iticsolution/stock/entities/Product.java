@@ -16,5 +16,6 @@ public class Product {
     private double prixVente;
     private long quantite;
     private String imageUrl;
-
+    @ManyToOne
+    private Category category;
 }

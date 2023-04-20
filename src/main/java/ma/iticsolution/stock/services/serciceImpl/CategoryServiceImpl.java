@@ -3,7 +3,6 @@ package ma.iticsolution.stock.services.serciceImpl;
 import ma.iticsolution.stock.entities.Category;
 import ma.iticsolution.stock.repository.CategoryRepo;
 import ma.iticsolution.stock.services.CategoryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

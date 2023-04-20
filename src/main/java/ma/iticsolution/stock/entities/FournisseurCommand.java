@@ -2,6 +2,7 @@ package ma.iticsolution.stock.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,9 +13,11 @@ import java.util.List;
 @Entity @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Fournisseur extends Actor{
+public class FournisseurCommand extends Command{
 
     @JsonIgnore
-    @OneToMany(mappedBy = "fournisseur")
-    private List<FournisseurCommand> commands;
+    @OneToMany(mappedBy = "command")
+    private List<LineCommandFournisseur> lcFournisseur;
+    @ManyToOne
+    private Fournisseur fournisseur;
 }

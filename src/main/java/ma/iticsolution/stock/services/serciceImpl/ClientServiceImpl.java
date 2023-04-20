@@ -1,6 +1,5 @@
 package ma.iticsolution.stock.services.serciceImpl;
 
-import ma.iticsolution.stock.entities.Actor;
 import ma.iticsolution.stock.entities.Client;
 import ma.iticsolution.stock.repository.ClientRepo;
 import ma.iticsolution.stock.services.ClientService;
