@@ -5,7 +5,7 @@ import ma.iticsolution.stock.services.LCClientService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/client/command")
+@RequestMapping("/api/client/line-command")
 public class LCClientController {
 
     final LCClientService service;
@@ -13,19 +13,19 @@ public class LCClientController {
     public LCClientController(LCClientService service) {
         this.service = service;
     }
-    @PostMapping("/add-line-command")
+    @PostMapping
     public LineCommandClient addLineCommand(@RequestBody LineCommandClient lineCommand){
         return service.addLineCommand(lineCommand);
     }
-    @GetMapping("/line-command/{id}")
+    @GetMapping("/{id}")
     public LineCommandClient findLineCommandById(@PathVariable Long id){
         return service.findLineCommandById(id);
     }
-    @PutMapping("/update-line-command/{id}")
+    @PutMapping("/{id}")
     public LineCommandClient updatelineCommand(@RequestBody LineCommandClient lineCommand,@PathVariable Long id){
         return service.updateLienCommand(lineCommand,id);
     }
-    @DeleteMapping("/delete-line-command/{id}")
+    @DeleteMapping("/{id}")
     public void deleteLineCommand(@PathVariable Long id){
         service.deleteCommand(id);
     }

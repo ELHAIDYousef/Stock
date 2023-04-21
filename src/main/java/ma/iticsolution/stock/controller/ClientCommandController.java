@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/client/command")
+@RequestMapping(path = "/api/client/command")
 public class ClientCommandController {
 
     ClientCommandService ccService;
@@ -31,17 +31,17 @@ public class ClientCommandController {
         return ccService.findCommandByEtat(etat);
     }
 
-    @PostMapping("/add-command")
+    @PostMapping
     public ClientCommand addCommand(@RequestBody ClientCommand cc) {
         return ccService.addCommand(cc);
     }
 
-    @PutMapping("/update-command/{id}")
+    @PutMapping("/{id}")
     public ClientCommand updateCommand(@RequestBody ClientCommand cc,@PathVariable Long id) {
         return ccService.updateCommand(cc, id);
     }
 
-    @DeleteMapping("/delete-command/{id}")
+    @DeleteMapping("/{id}")
     public void deleteCommand(@PathVariable(name = "id") Long id) {
         ccService.deleteCommand(id);
     }

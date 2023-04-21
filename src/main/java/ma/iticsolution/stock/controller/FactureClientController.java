@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/client/facture")
+@RequestMapping("/api/client/facture")
 public class FactureClientController {
     final FactureClientService service;
 
     public FactureClientController(FactureClientService service) {
         this.service = service;
     }
-    @GetMapping("")
+    @GetMapping
     public List<FactureClient> findAllFactures(){
         return service.findAllFactures();
     }
@@ -22,15 +22,15 @@ public class FactureClientController {
     public FactureClient findById(@PathVariable Long id){
         return service.findFactureById(id);
     }
-    @PostMapping("/add-facture")
+    @PostMapping
     public FactureClient addFacture(@RequestBody FactureClient facture){
         return service.addFacture(facture);
     }
-    @PutMapping("/update-facture/{id}")
+    @PutMapping("/{id}")
     public FactureClient updateFacture(@RequestBody FactureClient facture,@PathVariable Long id){
         return service.updateFacture(facture,id);
     }
-    @DeleteMapping("/delete-facture/{id}")
+    @DeleteMapping("/{id}")
     public void deleteFacture(@PathVariable Long id){
         service.deleteFacture(id);
     }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/fournisseur/command")
+@RequestMapping(path = "/api/fournisseur/command")
 public class FournisseurCommandController {
 
     FournisseurCommandService fcService;
@@ -22,7 +22,7 @@ public class FournisseurCommandController {
     public FournisseurCommand getCommandById(@PathVariable(name = "id") Long id) {
         return fcService.findCommandById(id);
     }
-    @GetMapping("")
+    @GetMapping
     public List<FournisseurCommand> getAllCommands() {
         return fcService.findAllCommands();
     }
@@ -31,17 +31,17 @@ public class FournisseurCommandController {
         return fcService.findCommandByEtat(etat);
     }
 
-    @PostMapping("/add-command")
+    @PostMapping
     public Command addCommand(@RequestBody FournisseurCommand fc) {
         return fcService.addCommand(fc);
     }
 
-    @PutMapping("/update-command/{id}")
+    @PutMapping("/{id}")
     public Command updateCommand(@RequestBody FournisseurCommand fc,@PathVariable Long id) {
         return fcService.updateCommand(fc, id);
     }
 
-    @DeleteMapping("/delete-command/{id}")
+    @DeleteMapping("/{id}")
     public void deleteCommand(@PathVariable(name = "id") Long id) {
         fcService.deleteCommand(id);
     }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/fournisseur")
+@RequestMapping(path = "/api/fournisseur")
 public class FournisseurController {
 
     FournisseurService fournisseurService;
@@ -21,19 +21,19 @@ public class FournisseurController {
     public Fournisseur getFournisseurById(@PathVariable(name = "id") Long id) {
         return fournisseurService.findFournisseurById(id);
     }
-    @GetMapping("")
+    @GetMapping
     public List<Fournisseur> getFournisseurByName(@RequestParam(name = "name",defaultValue = "") String name) {
         return fournisseurService.findFournisseurByName(name);
     }
-    @PostMapping("/add-fournisseur")
+    @PostMapping
     public Fournisseur addFournisseur(@RequestBody Fournisseur fournisseur) {
         return fournisseurService.addFournisseur(fournisseur);
     }
-    @PutMapping("/update-fournisseur/{id}")
+    @PutMapping("/{id}")
     public Fournisseur updateFournisseur(@RequestBody Fournisseur fournisseur,@PathVariable Long id) {
         return fournisseurService.updateFournisseur(fournisseur, id);
     }
-    @DeleteMapping("/delete-fournisseur/{id}")
+    @DeleteMapping("/{id}")
     public void deleteFournisseur(@PathVariable(name = "id") Long id) {
         fournisseurService.deleteFournisseur(id);
     }
