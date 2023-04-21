@@ -17,7 +17,7 @@ public class LCFournisseurController {
     public LineCommandFournisseur addLineCommand(@RequestBody LineCommandFournisseur lineCommand){
         return service.addLineCommand(lineCommand);
     }
-    @GetMapping("/{id}")
+    @GetMapping("/line-command/{id}")
     public LineCommandFournisseur findLineCommandById(@PathVariable Long id){
         return service.findLineCommandById(id);
     }

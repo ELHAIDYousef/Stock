@@ -17,11 +17,11 @@ public class LCClientController {
     public LineCommandClient addLineCommand(@RequestBody LineCommandClient lineCommand){
         return service.addLineCommand(lineCommand);
     }
-    @GetMapping("/{id}")
+    @GetMapping("/line-command/{id}")
     public LineCommandClient findLineCommandById(@PathVariable Long id){
         return service.findLineCommandById(id);
     }
-    @PutMapping("update-line-command/{id}")
+    @PutMapping("/update-line-command/{id}")
     public LineCommandClient updatelineCommand(@RequestBody LineCommandClient lineCommand,@PathVariable Long id){
         return service.updateLienCommand(lineCommand,id);
     }
