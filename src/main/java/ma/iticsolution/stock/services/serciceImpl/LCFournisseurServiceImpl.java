@@ -5,7 +5,6 @@ import ma.iticsolution.stock.repository.LineCommandFournisseurRepo;
 import ma.iticsolution.stock.services.LCFournisseurService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
 public class LCFournisseurServiceImpl implements LCFournisseurService {
 
@@ -13,11 +12,6 @@ public class LCFournisseurServiceImpl implements LCFournisseurService {
 
     public LCFournisseurServiceImpl(LineCommandFournisseurRepo lcfRepo) {
         this.lcfRepo = lcfRepo;
-    }
-
-    @Override
-    public List<LineCommandFournisseur> findAllCommands() {
-        return lcfRepo.findAll();
     }
 
     @Override
@@ -35,10 +29,7 @@ public class LCFournisseurServiceImpl implements LCFournisseurService {
         lcf.setId(id);
         return lcfRepo.save(lcf);
     }
-    @Override
-    public List<LineCommandFournisseur> getLineCommandsByCommand(Long id) {
-        return lcfRepo.findByCommand_Id(id);
-    }
+
 
     @Override
     public void deleteCommand(Long id) {

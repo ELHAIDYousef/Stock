@@ -36,8 +36,8 @@ public class ClientCommandController {
         return ccService.addCommand(cc);
     }
 
-    @PutMapping("/update-command")
-    public ClientCommand updateCommand(ClientCommand cc, Long id) {
+    @PutMapping("/update-command/{id}")
+    public ClientCommand updateCommand(@RequestBody ClientCommand cc,@PathVariable Long id) {
         return ccService.updateCommand(cc, id);
     }
 

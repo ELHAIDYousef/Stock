@@ -5,7 +5,6 @@ import ma.iticsolution.stock.repository.LineCommandClientRepo;
 import ma.iticsolution.stock.services.LCClientService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class LCClientServiceImpl implements LCClientService {
@@ -16,10 +15,6 @@ public class LCClientServiceImpl implements LCClientService {
         this.lccRepo = lccRepo;
     }
 
-    @Override
-    public List<LineCommandClient> findAllCommands() {
-        return lccRepo.findAll();
-    }
 
     @Override
     public LineCommandClient addLineCommand(LineCommandClient lcc) {

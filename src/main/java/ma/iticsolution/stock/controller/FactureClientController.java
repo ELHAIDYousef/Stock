@@ -26,8 +26,8 @@ public class FactureClientController {
     public FactureClient addFacture(@RequestBody FactureClient facture){
         return service.addFacture(facture);
     }
-    @PutMapping("/update-facture")
-    public FactureClient updateFacture(@RequestBody FactureClient facture,Long id){
+    @PutMapping("/update-facture/{id}")
+    public FactureClient updateFacture(@RequestBody FactureClient facture,@PathVariable Long id){
         return service.updateFacture(facture,id);
     }
     @DeleteMapping("/delete-facture/{id}")

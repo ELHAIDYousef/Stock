@@ -36,8 +36,8 @@ public class FournisseurCommandController {
         return fcService.addCommand(fc);
     }
 
-    @PutMapping("/update-command")
-    public Command updateCommand(FournisseurCommand fc, Long id) {
+    @PutMapping("/update-command/{id}")
+    public Command updateCommand(@RequestBody FournisseurCommand fc,@PathVariable Long id) {
         return fcService.updateCommand(fc, id);
     }
 

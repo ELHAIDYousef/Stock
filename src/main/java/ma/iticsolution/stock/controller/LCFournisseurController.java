@@ -1,0 +1,32 @@
+package ma.iticsolution.stock.controller;
+
+import ma.iticsolution.stock.entities.LineCommandFournisseur;
+import ma.iticsolution.stock.services.LCFournisseurService;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/fourniseeur/command")
+public class LCFournisseurController {
+
+    final LCFournisseurService service;
+
+    public LCFournisseurController(LCFournisseurService service) {
+        this.service = service;
+    }
+    @PostMapping("/add-line-command")
+    public LineCommandFournisseur addLineCommand(@RequestBody LineCommandFournisseur lineCommand){
+        return service.addLineCommand(lineCommand);
+    }
+    @GetMapping("/{id}")
+    public LineCommandFournisseur findLineCommandById(@PathVariable Long id){
+        return service.findLineCommandById(id);
+    }
+    @PutMapping("update-line-command/{id}")
+    public LineCommandFournisseur updatelineCommand(@RequestBody LineCommandFournisseur lineCommand,@PathVariable Long id){
+        return service.updateLienCommand(lineCommand,id);
+    }
+    @DeleteMapping("/delete-line-command/{id}")
+    public void deleteLineCommand(@PathVariable Long id){
+        service.deleteCommand(id);
+    }
+}

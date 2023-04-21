@@ -29,8 +29,8 @@ public class FournisseurController {
     public Fournisseur addFournisseur(@RequestBody Fournisseur fournisseur) {
         return fournisseurService.addFournisseur(fournisseur);
     }
-    @PutMapping("/update-fournisseur")
-    public Fournisseur updateFournisseur(Fournisseur fournisseur, Long id) {
+    @PutMapping("/update-fournisseur/{id}")
+    public Fournisseur updateFournisseur(@RequestBody Fournisseur fournisseur,@PathVariable Long id) {
         return fournisseurService.updateFournisseur(fournisseur, id);
     }
     @DeleteMapping("/delete-fournisseur/{id}")

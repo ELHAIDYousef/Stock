@@ -26,12 +26,12 @@ public class FactureFournisseurController {
     public FactureFournisseur addFacture(@RequestBody FactureFournisseur facture){
         return service.addFacture(facture);
     }
-    @PutMapping("/update-facture")
-    public FactureFournisseur updateFacture(@RequestBody FactureFournisseur facture,Long id){
+    @PutMapping("/update-facture/{id}")
+    public FactureFournisseur updateFacture(@RequestBody FactureFournisseur facture,@PathVariable Long id){
         return service.updateFacture(facture,id);
     }
     @DeleteMapping("/delete-facture/{id}")
-    public void deleteFacture(Long id){
+    public void deleteFacture(@PathVariable Long id){
         service.deleteFacture(id);
     }
 }
