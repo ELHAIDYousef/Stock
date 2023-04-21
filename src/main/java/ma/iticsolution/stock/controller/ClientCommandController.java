@@ -21,7 +21,7 @@ public class ClientCommandController {
     public ClientCommand getCommandById(@PathVariable(name = "id") Long id) {
         return ccService.findCommandById(id);
     }
-    @GetMapping("get-all")
+    @GetMapping
     public List<ClientCommand> getAllCommands(){
         return ccService.findAllCommands();
     }

@@ -5,7 +5,7 @@ import ma.iticsolution.stock.services.LCFournisseurService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/fourniseeur/command")
+@RequestMapping("/fournisseur/command")
 public class LCFournisseurController {
 
     final LCFournisseurService service;

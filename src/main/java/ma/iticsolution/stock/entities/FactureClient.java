@@ -12,7 +12,9 @@ public class FactureClient {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String codeFacture;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateFacture;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date echance;
     @OneToOne
     private ClientCommand command;
