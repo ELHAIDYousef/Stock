@@ -1,6 +1,6 @@
 package ma.iticsolution.stock.services.serciceImpl;
 
-import ma.iticsolution.stock.entities.ClientCommand;
+import ma.iticsolution.stock.entities.CommandClient;
 import ma.iticsolution.stock.repository.ClientCommandRepo;
 import ma.iticsolution.stock.services.ClientCommandService;
 import org.springframework.stereotype.Service;
@@ -17,22 +17,22 @@ public class ClientCommandServiceImpl implements ClientCommandService {
 
 
     @Override
-    public List<ClientCommand> findAllCommands() {
+    public List<CommandClient> findAllCommands() {
         return ccRepo.findAll();
     }
 
     @Override
-    public ClientCommand addCommand(ClientCommand cc) {
+    public CommandClient addCommand(CommandClient cc) {
         return ccRepo.save(cc);
     }
 
     @Override
-    public ClientCommand findCommandById(Long id) {
+    public CommandClient findCommandById(Long id) {
         return ccRepo.findById(id).get();
     }
 
     @Override
-    public ClientCommand updateCommand(ClientCommand cc, Long id) {
+    public CommandClient updateCommand(CommandClient cc, Long id) {
         cc.setId(id);
         return ccRepo.save(cc);
     }
@@ -43,7 +43,7 @@ public class ClientCommandServiceImpl implements ClientCommandService {
     }
 
     @Override
-    public List<ClientCommand> findCommandByEtat(String etat) {
+    public List<CommandClient> findCommandByEtat(String etat) {
         return ccRepo.findCommandByEtat(etat);
     }
 }

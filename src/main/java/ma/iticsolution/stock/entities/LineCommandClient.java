@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class LineCommandClient extends LineCommand{
 
     @ManyToOne
-    private Command command;
+    private CommandClient command;
     @OneToOne
     private Product product;
 }

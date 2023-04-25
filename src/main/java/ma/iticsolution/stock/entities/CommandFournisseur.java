@@ -11,13 +11,16 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity @Data @AllArgsConstructor @NoArgsConstructor
-public class ClientCommand extends Command{
+@Entity @Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CommandFournisseur extends Command{
+
     @JsonIgnore
     @OneToMany(mappedBy = "command")
-    private List<LineCommandClient> lcClient;
+    private List<LineCommandFournisseur> lcFournisseur;
     @ManyToOne
-    private Client client;
+    private Fournisseur fournisseur;
     @OneToOne
-    private FactureClient factureClient;
+    private FactureFournisseur factureFournisseur;
 }

@@ -15,7 +15,7 @@ public class FactureClient {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateFacture;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date echance;
+    private Date echeance;
     @OneToOne
-    private ClientCommand command;
+    private CommandClient command;
 }

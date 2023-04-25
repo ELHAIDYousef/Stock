@@ -13,7 +13,7 @@ public class FactureFournisseur {
     private Long id;
     private String codeFacture;
     private Date dateFacture;
-    private Date echance;
+    private Date echeance;
     @OneToOne
-    private FournisseurCommand command;
+    private CommandFournisseur command;
 }

@@ -1,6 +1,6 @@
 package ma.iticsolution.stock.controller;
 
-import ma.iticsolution.stock.entities.ClientCommand;
+import ma.iticsolution.stock.entities.CommandClient;
 import ma.iticsolution.stock.services.ClientCommandService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,26 +18,26 @@ public class ClientCommandController {
 
 
     @GetMapping("/{id}")
-    public ClientCommand getCommandById(@PathVariable(name = "id") Long id) {
+    public CommandClient getCommandById(@PathVariable(name = "id") Long id) {
         return ccService.findCommandById(id);
     }
     @GetMapping
-    public List<ClientCommand> getAllCommands(){
+    public List<CommandClient> getAllCommands(){
         return ccService.findAllCommands();
     }
 
     @GetMapping("/get-by-etat")
-    public List<ClientCommand> getCommandByEtat(@RequestParam(name = "etat",defaultValue = "") String etat) {
+    public List<CommandClient> getCommandByEtat(@RequestParam(name = "etat",defaultValue = "") String etat) {
         return ccService.findCommandByEtat(etat);
     }
 
     @PostMapping
-    public ClientCommand addCommand(@RequestBody ClientCommand cc) {
+    public CommandClient addCommand(@RequestBody CommandClient cc) {
         return ccService.addCommand(cc);
     }
 
     @PutMapping("/{id}")
-    public ClientCommand updateCommand(@RequestBody ClientCommand cc,@PathVariable Long id) {
+    public CommandClient updateCommand(@RequestBody CommandClient cc, @PathVariable Long id) {
         return ccService.updateCommand(cc, id);
     }
 

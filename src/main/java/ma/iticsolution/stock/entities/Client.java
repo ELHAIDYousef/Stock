@@ -15,5 +15,5 @@ public class Client extends Actor{
 
     @JsonIgnore
     @OneToMany(mappedBy = "client")
-    private List<ClientCommand> commands;
+    private List<CommandClient> commands;
 }

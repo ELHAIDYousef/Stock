@@ -1,7 +1,7 @@
 package ma.iticsolution.stock.controller;
 
 import ma.iticsolution.stock.entities.Command;
-import ma.iticsolution.stock.entities.FournisseurCommand;
+import ma.iticsolution.stock.entities.CommandFournisseur;
 import ma.iticsolution.stock.services.FournisseurCommandService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,25 +19,25 @@ public class FournisseurCommandController {
 
 
     @GetMapping("/{id}")
-    public FournisseurCommand getCommandById(@PathVariable(name = "id") Long id) {
+    public CommandFournisseur getCommandById(@PathVariable(name = "id") Long id) {
         return fcService.findCommandById(id);
     }
     @GetMapping
-    public List<FournisseurCommand> getAllCommands() {
+    public List<CommandFournisseur> getAllCommands() {
         return fcService.findAllCommands();
     }
     @GetMapping("/get-by-etat")
-    public List<FournisseurCommand> getCommandByEtat(@RequestParam(name = "etat",defaultValue = "") String etat) {
+    public List<CommandFournisseur> getCommandByEtat(@RequestParam(name = "etat",defaultValue = "") String etat) {
         return fcService.findCommandByEtat(etat);
     }
 
     @PostMapping
-    public Command addCommand(@RequestBody FournisseurCommand fc) {
+    public Command addCommand(@RequestBody CommandFournisseur fc) {
         return fcService.addCommand(fc);
     }
 
     @PutMapping("/{id}")
-    public Command updateCommand(@RequestBody FournisseurCommand fc,@PathVariable Long id) {
+    public Command updateCommand(@RequestBody CommandFournisseur fc, @PathVariable Long id) {
         return fcService.updateCommand(fc, id);
     }
 

@@ -16,5 +16,5 @@ public class Fournisseur extends Actor{
 
     @JsonIgnore
     @OneToMany(mappedBy = "fournisseur")
-    private List<FournisseurCommand> commands;
+    private List<CommandFournisseur> commands;
 }

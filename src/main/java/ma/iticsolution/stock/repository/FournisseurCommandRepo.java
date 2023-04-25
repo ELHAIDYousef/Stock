@@ -1,13 +1,13 @@
 package ma.iticsolution.stock.repository;
 
 
-import ma.iticsolution.stock.entities.FournisseurCommand;
+import ma.iticsolution.stock.entities.CommandFournisseur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 
-public interface FournisseurCommandRepo extends JpaRepository<FournisseurCommand,Long> {
+public interface FournisseurCommandRepo extends JpaRepository<CommandFournisseur,Long> {
 
-    List<FournisseurCommand> findCommandByEtat(String etat);
+    List<CommandFournisseur> findCommandByEtat(String etat);
 }

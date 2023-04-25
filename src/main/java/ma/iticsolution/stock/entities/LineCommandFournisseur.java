@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LineCommandFournisseur extends LineCommand{
     @ManyToOne
-    private Command command;
+    private CommandFournisseur command;
     @OneToOne
     private Product product;
 }

@@ -1,17 +1,17 @@
 package ma.iticsolution.stock.services;
 
-import ma.iticsolution.stock.entities.ClientCommand;
+import ma.iticsolution.stock.entities.CommandClient;
 
 import java.util.List;
 
 
 public interface ClientCommandService {
 
-    List<ClientCommand> findAllCommands();
-    ClientCommand addCommand(ClientCommand cc);
-    ClientCommand findCommandById(Long id);
-    ClientCommand updateCommand(ClientCommand cc , Long id);
+    List<CommandClient> findAllCommands();
+    CommandClient addCommand(CommandClient cc);
+    CommandClient findCommandById(Long id);
+    CommandClient updateCommand(CommandClient cc , Long id);
     void deleteCommand(Long id);
-    List<ClientCommand> findCommandByEtat(String etat);
+    List<CommandClient> findCommandByEtat(String etat);
 
 }
