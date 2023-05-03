@@ -12,9 +12,11 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String designation;
     private double prixAchat;
     private double prixVente;
     private long quantite;
+    private int tva ;
     private String imageUrl;
     @ManyToOne
     private Category category;

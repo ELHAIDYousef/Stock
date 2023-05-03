@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CategoryRepo extends JpaRepository<Category,Long> {
 
-    List<Category> findCategoryByNameContains(String name);
+    List<Category> findCategoryByNameContainsOrderByNameAsc(String name);
 }

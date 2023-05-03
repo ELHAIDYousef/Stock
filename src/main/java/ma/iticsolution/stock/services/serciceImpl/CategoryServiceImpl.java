@@ -38,6 +38,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<Category> findCategoryByName(String name) {
-        return categoryRepo.findCategoryByNameContains(name);
+        return categoryRepo.findCategoryByNameContainsOrderByNameAsc(name);
     }
 }
