@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/client/command")
+@CrossOrigin("*")
 public class ClientCommandController {
 
     ClientCommandService ccService;

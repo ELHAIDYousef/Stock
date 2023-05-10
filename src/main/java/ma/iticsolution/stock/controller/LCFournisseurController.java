@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/fournisseur/line-command")
+@CrossOrigin("*")
 public class LCFournisseurController {
 
     final LCFournisseurService service;

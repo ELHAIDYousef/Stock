@@ -10,6 +10,11 @@ import lombok.NoArgsConstructor;
 @Entity @Data @AllArgsConstructor@NoArgsConstructor
 public class LineCommandClient extends LineCommand{
 
+
+    private double montantTTC;
+    private double montantTVA;
+    private double montantHT;
+    private int tauxR;
     @ManyToOne
     private CommandClient command;
     @OneToOne

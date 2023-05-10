@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/client/facture")
+@CrossOrigin("*")
 public class FactureClientController {
     final FactureClientService service;
 

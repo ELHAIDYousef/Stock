@@ -14,5 +14,4 @@ public class LineCommand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private long qteCom;
-    private double total;
 }

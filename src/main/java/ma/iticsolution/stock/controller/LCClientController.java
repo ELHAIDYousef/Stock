@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/client/line-command")
+@CrossOrigin("*")
 public class LCClientController {
 
     final LCClientService service;
