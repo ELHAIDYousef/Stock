@@ -1,5 +1,6 @@
 package ma.iticsolution.stock.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
@@ -16,6 +17,7 @@ public class LineCommandClient extends LineCommand{
     private double montantHT;
     private int tauxR;
     @ManyToOne
+    @JsonIgnore
     private CommandClient command;
     @OneToOne
     private Product product;

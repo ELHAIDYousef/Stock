@@ -1,6 +1,5 @@
 package ma.iticsolution.stock.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
 public class CommandClient extends Command{
-    @JsonIgnore
+
     @OneToMany(mappedBy = "command")
     private List<LineCommandClient> lcClient;
     @ManyToOne

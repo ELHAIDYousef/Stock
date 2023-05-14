@@ -1,6 +1,7 @@
 package ma.iticsolution.stock.services.serciceImpl;
 
 import ma.iticsolution.stock.entities.LineCommandClient;
+import ma.iticsolution.stock.repository.ClientCommandRepo;
 import ma.iticsolution.stock.repository.LineCommandClientRepo;
 import ma.iticsolution.stock.services.LCClientService;
 import org.springframework.stereotype.Service;
@@ -10,14 +11,17 @@ import org.springframework.stereotype.Service;
 public class LCClientServiceImpl implements LCClientService {
 
     final LineCommandClientRepo lccRepo;
+    final ClientCommandRepo ccRepo;
 
-    public LCClientServiceImpl(LineCommandClientRepo lccRepo) {
+    public LCClientServiceImpl(LineCommandClientRepo lccRepo, ClientCommandRepo ccRepo) {
         this.lccRepo = lccRepo;
+        this.ccRepo = ccRepo;
     }
 
 
     @Override
-    public LineCommandClient addLineCommand(LineCommandClient lcc) {
+    public LineCommandClient addLineCommand(LineCommandClient lcc, Long commandId) {
+        lcc.setCommand(ccRepo.findById(commandId).get());
         return lccRepo.save(lcc);
     }
 

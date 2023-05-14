@@ -1,6 +1,5 @@
 package ma.iticsolution.stock.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -16,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CommandFournisseur extends Command{
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "command")
     private List<LineCommandFournisseur> lcFournisseur;
     @ManyToOne

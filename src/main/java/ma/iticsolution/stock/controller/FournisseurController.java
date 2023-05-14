@@ -23,7 +23,7 @@ public class FournisseurController {
         return fournisseurService.findFournisseurById(id);
     }
     @GetMapping
-    public List<Fournisseur> getFournisseurByName(@RequestParam(name = "name",defaultValue = "") String name) {
+    public List<Fournisseur> getFournisseurByName(@RequestParam(name = "name",defaultValue ="") String name) {
         return fournisseurService.findFournisseurByName(name);
     }
     @PostMapping
