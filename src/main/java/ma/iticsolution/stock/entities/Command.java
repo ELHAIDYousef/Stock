@@ -19,6 +19,7 @@ public class Command {
     @Temporal(TemporalType.DATE)
     private Date dateCommand;
     private String etat;
+    private String status;
     private double total;
 
 }

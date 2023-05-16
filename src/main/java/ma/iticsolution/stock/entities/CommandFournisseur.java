@@ -20,6 +20,4 @@ public class CommandFournisseur extends Command{
     private List<LineCommandFournisseur> lcFournisseur;
     @ManyToOne
     private Fournisseur fournisseur;
-    @OneToOne
-    private FactureFournisseur factureFournisseur;
 }

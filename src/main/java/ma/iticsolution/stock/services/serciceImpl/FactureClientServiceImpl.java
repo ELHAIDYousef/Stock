@@ -45,4 +45,9 @@ public class FactureClientServiceImpl implements FactureClientService {
     public void deleteFacture(Long id) {
         service.deleteById(id);
     }
+
+    @Override
+    public FactureClient getLatestFactureClient() {
+        return service.findLatestFactureClient();
+    }
 }

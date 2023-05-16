@@ -14,4 +14,5 @@ public interface FactureClientService {
     FactureClient updateFacture(FactureClient fc , Long id);
     void deleteFacture(Long id);
 
+    FactureClient getLatestFactureClient();
 }

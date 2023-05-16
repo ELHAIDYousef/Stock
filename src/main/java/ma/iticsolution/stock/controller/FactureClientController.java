@@ -2,6 +2,7 @@ package ma.iticsolution.stock.controller;
 
 import ma.iticsolution.stock.entities.FactureClient;
 import ma.iticsolution.stock.services.FactureClientService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,16 @@ public class FactureClientController {
     public List<FactureClient> findAllFactures(){
         return service.findAllFactures();
     }
+    @GetMapping("/latest")
+    public String getLatestFactureClient() {
+        FactureClient latestFactureClient = service.getLatestFactureClient();
+        if (latestFactureClient != null && latestFactureClient.getCodeFacture() != null) {
+            return latestFactureClient.getCodeFacture();
+        } else {
+            return "0000";
+        }
+    }
+
     @GetMapping("/{id}")
     public FactureClient findById(@PathVariable Long id){
         return service.findFactureById(id);
