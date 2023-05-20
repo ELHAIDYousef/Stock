@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface FactureClientRepo extends JpaRepository<FactureClient,Long> {
     List<FactureClient> findByCommand_Client_Id(Long id);
-    @Query(value = "SELECT * FROM facture_client ORDER BY date_facture DESC LIMIT 1", nativeQuery = true)
-    FactureClient findLatestFactureClient();
+    @Query("SELECT f FROM FactureClient f ORDER BY f.dateFacture DESC")
+    List<FactureClient> findLatestFactureClient();
 }

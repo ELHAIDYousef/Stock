@@ -6,6 +6,7 @@ import ma.iticsolution.stock.services.FactureFournisseurService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class FactureFournisseurServiceImpl implements FactureFournisseurService {
     final FactureFournisseurRepo service;
@@ -20,13 +21,13 @@ public class FactureFournisseurServiceImpl implements FactureFournisseurService 
     }
 
     @Override
-    public List<FactureFournisseur> findAllFacturesFournisseur(Long id) {
-        return service.findByCommand_Fournisseur_Id(id);
+    public FactureFournisseur addFacture(FactureFournisseur ff) {
+        return service.save(ff);
     }
 
     @Override
-    public FactureFournisseur addFacture(FactureFournisseur ff) {
-        return service.save(ff);
+    public List<FactureFournisseur> findAllFactureFournisseur(Long id) {
+        return service.findByCommand_Fournisseur_Id(id);
     }
 
     @Override

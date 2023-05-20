@@ -15,6 +15,9 @@ public class FactureFournisseurController {
     public FactureFournisseurController(FactureFournisseurService service) {
         this.service = service;
     }
+
+
+
     @GetMapping
     public List<FactureFournisseur> findAllFactures(){
         return service.findAllFactures();

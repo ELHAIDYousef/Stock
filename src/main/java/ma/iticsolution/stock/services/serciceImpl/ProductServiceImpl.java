@@ -4,12 +4,22 @@ import ma.iticsolution.stock.entities.Product;
 import ma.iticsolution.stock.repository.ProductRepo;
 import ma.iticsolution.stock.services.ProductService;
 import ma.iticsolution.stock.services.utils.FilesStorageService;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class ProductServiceImpl implements ProductService {
     final ProductRepo productRepo;
@@ -77,4 +87,30 @@ public class ProductServiceImpl implements ProductService {
         currentProduct.setImageUrl(filesStorageService.uploadFile(file,pathFolder));
         currentProduct =productRepo.save(currentProduct);
     }
+    @Override
+    public ResponseEntity<byte[]> generateReport() throws FileNotFoundException, JRException {
+        String path = "D:\\Courses\\Jasper Report\\Reports";
+        List<Product> products = productRepo.findOrderByName();
+        File file = ResourceUtils.getFile("classpath:products.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(products);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Myself");
+        JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+        byte[] reportBytes = JasperExportManager.exportReportToPdf(print);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "products.pdf");
+        headers.setCacheControl("must-revalidate, no-store");
+        headers.setPragma("no-cache");
+        headers.setExpires(0);
+
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .body(reportBytes);
+    }
+
+
 }

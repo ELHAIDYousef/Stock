@@ -1,6 +1,7 @@
 package ma.iticsolution.stock.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
@@ -16,7 +17,7 @@ public class LineCommandClient extends LineCommand{
     private double montantTVA;
     private double montantHT;
     private int tauxR;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnore
     private CommandClient command;
     @OneToOne

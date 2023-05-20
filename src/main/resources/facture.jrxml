@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.3.final using JasperReports Library version 6.20.3-415f9428cffdb6805c6f85bbb29ebaf18813a2ab  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice_2" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+    <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+    <style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#EEEFF0"/>
+        </conditionalStyle>
+    </style>
+    <style name="Table">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+            <topPen lineWidth="1.0" lineColor="#000000"/>
+            <leftPen lineWidth="1.0" lineColor="#000000"/>
+            <bottomPen lineWidth="1.0" lineColor="#000000"/>
+            <rightPen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_CH" mode="Opaque" backcolor="#CACED0">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style backcolor="#D8D8D8"/>
+        </conditionalStyle>
+    </style>
+    <subDataset name="tableDataset" uuid="f13e6d36-5148-4ecc-bbe3-3035def80980">
+        <queryString>
+            <![CDATA[]]>
+        </queryString>
+    </subDataset>
+    <field name="command.lcClient.product.name" class="java.lang.String">
+    </field>
+    <field name="command.lcClient.product.designation" class="java.lang.String">
+    </field>
+    <field name="command.lcClient.product.prixVente" class="java.lang.Double">
+    </field>
+    <field name="command.lcClient.qteCom" class="java.lang.Long">
+    </field>
+    <field name="command.lcClient.montantHT" class="java.lang.Double">
+    </field>
+    <field name="command.lcClient.montantTVA" class="java.lang.Double">
+    </field>
+    <field name="command.lcClient.montantTTC" class="java.lang.Double">
+    </field>
+    <field name="command.total" class="java.lang.Double">
+    </field>
+    <field name="dateFacture" class="java.sql.Date">
+    </field>
+    <field name="command.client.name" class="java.lang.String">
+    </field>
+    <field name="command.client.tel" class="java.lang.String">
+    </field>
+    <field name="command.client.email" class="java.lang.String">
+    </field>
+    <field name="command.client.codePostal" class="java.lang.String">
+    </field>
+    <field name="command.client.address" class="java.lang.String">
+    </field>
+    <field name="codeFacture" class="java.lang.String">
+    </field>
+    <title>
+        <band height="200" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="70" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
+                    <property name="local_mesure_unitheight" value="pixel"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+            </line>
+            <staticText>
+                <reportElement x="130" y="-6" width="210" height="25" uuid="d77d2299-f033-4a9b-8c1a-b5d9b7c54598">
+                    <property name="local_mesure_unitheight" value="pixel"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font size="19" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ITIC SOLUTION]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="130" y="49" width="205" height="15" uuid="f545ce9c-70c2-43ff-827a-b1b4a58cf63d"/>
+                <text><![CDATA[+212808575886 / +212622853711 ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="130" y="19" width="205" height="15" uuid="1035f027-8b10-4dde-bb49-7394978215ec"/>
+                <text><![CDATA[Innovation de technologie des informations connectées ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="130" y="34" width="205" height="15" uuid="1352d869-a7a1-4922-9ee5-658df78e68ac"/>
+                <text><![CDATA[N°3 immeuble Karoum, Av Alkhansaa Cité Azmani, Ouled
+Teima]]></text>
+            </staticText>
+            <image>
+                <reportElement x="0" y="0" width="120" height="84" uuid="5498df59-8e0d-43ce-bffb-d6036ab79d31"/>
+                <imageExpression><![CDATA["D:/EST-L/ESTL GI S4/Stage/CabinetComptableApplication_date_07_11_2022/reports/invoice_logo.png"]]></imageExpression>
+            </image>
+            <staticText>
+                <reportElement x="2" y="80" width="50" height="30" uuid="97ddce5e-6241-47d7-9a40-5d873b11d0fb"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Date : ]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="50" y="80" width="100" height="30" uuid="b6b3210f-f5bf-4dce-b437-b9e11ae6249d"/>
+                <textFieldExpression><![CDATA[$F{dateFacture}]]></textFieldExpression>
+
+            </textField>
+            <staticText>
+                <reportElement x="268" y="77" width="50" height="30" uuid="1e62d24b-31ab-409a-90c0-f3fec55f18c8"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Client : ]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="350" y="77" width="195" height="30" uuid="f36cafe4-5ffb-4b16-bb43-68f813a4b24b"/>
+                <textFieldExpression><![CDATA[$F{command.client.name}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="268" y="100" width="72" height="30" uuid="3939288b-6b49-4e4f-9ff1-e412dd16fd25"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Telephone : ]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="350" y="100" width="195" height="30" uuid="7e843ca7-b5ee-49ef-8b7f-e182352718b2"/>
+                <textFieldExpression><![CDATA[$F{command.client.tel}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="268" y="120" width="50" height="30" uuid="e4b71372-be2b-404a-84f0-d1a89f9c5db8"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Email :]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="350" y="120" width="195" height="30" uuid="4985513a-d516-4663-b1c2-511834ec3860"/>
+                <textFieldExpression><![CDATA[$F{command.client.email}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="268" y="140" width="82" height="30" uuid="7d18a7ac-05c0-410e-a751-326019b50d12"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Code Postale: ]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="350" y="140" width="195" height="30" uuid="8ac4bc2a-2670-482c-845d-91d948080a5e"/>
+                <textFieldExpression><![CDATA[$F{command.client.codePostal}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="116" width="60" height="30" uuid="8c6ff8d9-3a05-4f25-bd1a-8b0f1b325e4c"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Address :]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="60" y="116" width="202" height="44" uuid="ba31466d-842f-4e57-8883-acb9dbeb3626"/>
+                <textFieldExpression><![CDATA[$F{command.client.address}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement mode="Opaque" x="-10" y="160" width="556" height="30" backcolor="#E6E8E9" uuid="3acb7420-6a67-427d-9db5-bf63f1139408">
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{codeFacture}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="20">
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="-1" y="0" width="79" height="20" forecolor="#000000" uuid="117b54c2-26f7-4426-a4ec-832df2d9e62a">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bd6e6690-93ca-47a0-85ba-dabd0304ed80"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Produit]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="78" y="0" width="79" height="20" forecolor="#000000" uuid="2d1dd313-bf6f-47cf-b212-a2cc68eb6a73">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43383d97-2745-4c4b-a369-5c3edd7ce1d4"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Design]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="157" y="0" width="79" height="20" forecolor="#000000" uuid="473ea150-ec5f-4f56-b29b-08f3dcc5531c">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1f85b66e-0578-44ca-a859-226b9fadde63"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Prix]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="236" y="0" width="79" height="20" forecolor="#000000" uuid="a326cbcb-e45c-459e-b7f1-19af99228e03">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a8a3e26-dcc2-43f2-9be6-4772227a73b6"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Quantite]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="315" y="0" width="79" height="20" forecolor="#000000" uuid="85cd9bc2-d5f6-42fa-9932-4ad7addc4544">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4ddb502-4d02-4c84-8032-3368a61e89b3"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Montant.HT]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="394" y="0" width="79" height="20" forecolor="#000000" uuid="cc139d9c-e3db-4eab-8aa4-374c70d33597">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8963f347-2d39-4ef5-8fb8-94389d29196d"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Montant.TVA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="473" y="0" width="79" height="20" forecolor="#000000" uuid="f0180ef7-a481-4864-90c6-9e009ffa953c">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01812c04-7a20-4f56-b8cc-b37f34bd9a80"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Montant.TTC]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="-1" y="0" width="79" height="20" uuid="88b7d308-401f-4e93-9002-bcdb119ecd5c">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bd6e6690-93ca-47a0-85ba-dabd0304ed80"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{command.lcClient.product.name}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="78" y="0" width="79" height="20" uuid="45098d6c-658a-44d7-a478-85670454b22d">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43383d97-2745-4c4b-a369-5c3edd7ce1d4"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{command.lcClient.product.designation}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="157" y="0" width="79" height="20" uuid="f960bca2-7ac6-402e-9382-4b43da43915a">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1f85b66e-0578-44ca-a859-226b9fadde63"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{command.lcClient.product.prixVente}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="236" y="0" width="79" height="20" uuid="3f01be38-1997-449d-9f85-28c8088fea65">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a8a3e26-dcc2-43f2-9be6-4772227a73b6"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{command.lcClient.qteCom}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="315" y="0" width="79" height="20" uuid="785afdd1-74e1-4435-8f53-fae999a2b56e">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4ddb502-4d02-4c84-8032-3368a61e89b3"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{command.lcClient.montantHT}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="394" y="0" width="79" height="20" uuid="e390c054-8207-4670-a6f1-3dd4256e0359">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8963f347-2d39-4ef5-8fb8-94389d29196d"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{command.lcClient.montantTVA}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="473" y="0" width="79" height="20" uuid="7f8a2b32-8e8a-4009-ac71-441e1787d053">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01812c04-7a20-4f56-b8cc-b37f34bd9a80"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{command.lcClient.montantTTC}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <lastPageFooter>
+        <band height="177">
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="394" y="0" width="79" height="20" forecolor="#000000" uuid="27ca192e-c7d5-48c8-a091-55af675b15e7">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01812c04-7a20-4f56-b8cc-b37f34bd9a80"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total :]]></text>
+            </staticText>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="472" y="0" width="79" height="20" uuid="cd20de46-1547-4936-b00d-4ebd0f46f523">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01812c04-7a20-4f56-b8cc-b37f34bd9a80"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{command.total}]]></textFieldExpression>
+            </textField>
+        </band>
+    </lastPageFooter>
+</jasperReport>

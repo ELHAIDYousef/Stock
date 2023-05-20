@@ -2,10 +2,12 @@ package ma.iticsolution.stock.controller;
 
 import ma.iticsolution.stock.entities.Product;
 import ma.iticsolution.stock.services.ProductService;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
@@ -54,4 +56,10 @@ public class ProductController {
     public void addFile(@RequestParam("file") MultipartFile file) {
         productService.addFile(file);
     }
+
+    @GetMapping("/report")
+    public ResponseEntity<byte[]> generateReport() throws FileNotFoundException, JRException {
+        return productService.generateReport();
+    }
+
 }
