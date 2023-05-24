@@ -1,7 +1,10 @@
 package ma.iticsolution.stock.services;
 
 import ma.iticsolution.stock.entities.CommandFournisseur;
+import net.sf.jasperreports.engine.JRException;
+import org.springframework.http.ResponseEntity;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 
@@ -14,4 +17,5 @@ public interface FournisseurCommandService {
     void deleteCommand(Long id);
     List<CommandFournisseur> findCommandByEtat(String etat);
 
+    ResponseEntity<byte[]> generateReport() throws FileNotFoundException, JRException;
 }

@@ -3,8 +3,11 @@ package ma.iticsolution.stock.controller;
 import ma.iticsolution.stock.entities.Command;
 import ma.iticsolution.stock.entities.CommandFournisseur;
 import ma.iticsolution.stock.services.FournisseurCommandService;
+import net.sf.jasperreports.engine.JRException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
@@ -45,5 +48,10 @@ public class FournisseurCommandController {
     @DeleteMapping("/{id}")
     public void deleteCommand(@PathVariable(name = "id") Long id) {
         fcService.deleteCommand(id);
+    }
+
+    @GetMapping("/report")
+    public ResponseEntity<byte[]> generateReport() throws FileNotFoundException, JRException {
+        return fcService.generateReport();
     }
 }
