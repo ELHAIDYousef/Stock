@@ -1,49 +1,47 @@
 package ma.iticsolution.stock;
 
+import ma.iticsolution.stock.security.auth.AuthenticationService;
+import ma.iticsolution.stock.security.auth.RegisterRequest;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+import static ma.iticsolution.stock.security.user.Role.ADMIN;
+import static ma.iticsolution.stock.security.user.Role.MANAGER;
 
 
 @SpringBootApplication
-@ComponentScan({ "ma.iticsolution.stock.security", "ma.iticsolution.stock.security"})
-public class StockApplication implements CommandLineRunner {
+public class StockApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StockApplication.class, args);
 	}
 
 
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	/*@Bean
+	public CommandLineRunner commandLineRunner(
+			AuthenticationService service
+	) {
+		return args -> {
+			var admin = RegisterRequest.builder()
+					.firstname("Admin")
+					.lastname("Admin")
+					.email("admin@mail.com")
+					.password("password")
+					.role(ADMIN)
+					.build();
+			System.out.println("Admin token: " + service.register(admin).getAccessToken());
 
-	@Bean
-	public UserDetailsService userDetailsService() {
-		var userDetailsService =
-				new InMemoryUserDetailsManager();
+			var manager = RegisterRequest.builder()
+					.firstname("Admin")
+					.lastname("Admin")
+					.email("manager@mail.com")
+					.password("password")
+					.role(MANAGER)
+					.build();
+			System.out.println("Manager token: " + service.register(manager).getAccessToken());
 
-		var user = User.withUsername("admin")
-				.password("1234")
-				.authorities("ADMIN")
-				.build();
-
-		userDetailsService.createUser(user);
-
-		return userDetailsService;
-	}
-
-
-	@Override
-	public void run(String... args) throws Exception {
-
-	}
+		};
+	}*/
 }
